@@ -1,0 +1,78 @@
+body {
+    margin: 0px;
+}
+
+.cards-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    grid-template-areas: "card1 card2 card3 card4 card5";
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    min-width: 200px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-item1 {
+    grid-area: card1;
+}
+.card-item2 {
+    grid-area: card2;
+}
+.card-item3 {
+    grid-area: card3;
+}
+.card-item4 {
+    grid-area: card4;
+}
+.card-item5 {
+    grid-area: card5;
+}
+
+@media (max-width: 1146px) {
+    .cards-list {
+        grid-template-columns: repeat(4, minmax(200px, 1fr));
+        grid-template-areas: 
+            "card1 card2 card3 card4"
+            "card5 card5 card5 card5";
+    }
+}
+
+@media (max-width: 921px) {
+    .cards-list {
+        grid-template-columns: repeat(6, minmax(100px, 1fr)); 
+        grid-template-areas: 
+            "card1 card1 card2 card2 card3 card3" 
+            "card4 card4 card4 card5 card5 card5";
+    }
+}
+
+@media (max-width: 696px) {
+    .cards-list {
+        grid-template-columns: repeat(2, minmax(200px, 1fr));
+        grid-template-areas: 
+            "card1 card2"
+            "card3 card4"
+            "card5 card5";
+    }
+}
+
+@media (max-width: 471px) {
+    .cards-list {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "card1"
+            "card2"
+            "card3"
+            "card4"
+            "card5";
+    }
+}

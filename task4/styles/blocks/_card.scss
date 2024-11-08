@@ -1,0 +1,73 @@
+.card {
+    @include flexCenter;
+    flex-direction: column;
+    overflow: hidden;
+
+    &__photo-wrapper {
+        position: relative;
+        @include flexCenter;
+        border: 2px solid lightgray;
+        border-radius: 50%;
+        height: 90px;
+        aspect-ratio: 1;
+        margin-bottom: 20px;
+
+        &_left-line::before {
+            content: "";
+            position: absolute;
+            width: 30vw;
+            right: 110%;
+            height: 2px;
+            background-color: lightgray;
+        }
+
+        &_right-line::after {
+            content: "";
+            position: absolute;
+            width: 30vw;
+            left: 110%;
+            height: 2px;
+            background-color: lightgray;
+        }
+    }
+
+    &__title {
+        @include clampText($text-m-subtitle, $text-subtitle);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 400;
+        height: 50px;
+        margin: 0;
+    }
+
+    &__description {
+        @include clampText($text-m-main, $text-main);
+        margin: 10px;
+    }
+}
+
+@media (max-width: $mobile-breakpoints) {
+    .card {
+        &__photo-wrapper {
+            height: 70px;
+
+            &_left-line::before {
+                content: none;
+            }
+
+            &_right-line::after {
+                content: none;
+            }
+        }
+
+        &__photo {
+            @media (max-width: $mobile-breakpoints) {
+                height: 25px;
+            }
+        }
+
+        &__title {
+            height: fit-content;
+        }
+    }
+}
